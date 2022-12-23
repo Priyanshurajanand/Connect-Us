@@ -1,0 +1,50 @@
+<%- include('partials/header'); %>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<div class="container py-5">
+    <div class="row g-3 ">
+        <div class="col-md-6">
+            <h1 class="mb-3">
+                Secure Interviews. Now free for everyone.
+            </h1>
+            <p style="color: #5F6368;">We re-engineered the service we built for secure business meetings, Connect Us,
+                to make it free and
+                available for all.</p>
+            <div class="a123 my-5" style="display: flex; ">
+                <a class="btn btn-primary new-meeting" style="width: 180px;" href="/new-meeting" role="button">New
+                    Meeting</a>
+                <form action="join-room" style="margin-left: 1rem;" method="POST">
+                    <div class="input-group ">
+                        <span class="input-group-text" id="inputGroup-sizing-default">
+                            <ion-icon name="planet-outline"></ion-icon>
+                        </span>
+                        <input name="room_id" type="text" class="form-control" placeholder="Enter a code or Link"
+                            aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-primary" type="submit" id="button-addon2">Join</button>
+                    </div>
+                </form>
+            </div>
+            <hr>
+            <p><a href="#" style="text-decoration: none;">Learn more about</a> Connect Us</p>
+        </div>
+        <div class="col-md-6">
+            <div class="card" style="box-shadow: 0 0 5px #b8b8b8;">
+                <div class="card-body">
+                    <img src="/images/himg.png" width="100%" class="rounded" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body{
+        background: linear-gradient(90deg, rgba(215,214,215,1) 0%, rgba(129,234,255,1) 100%);
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+crossorigin="anonymous"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>

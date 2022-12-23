@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: linear-gradient(90deg, rgba(215,214,215,1) 0%, rgba(129,234,255,1) 100%);">
+  <div class="container-fluid nav-contcnt">
+    <a class="navbar-brand" href="/start" style="color: #5f6368">
+      <span style="font-weight: bold">Connect</span> Us</a
+    >
+    <div class="d-flex align-items-center">
+      <a href="/dashboard">
+        <p class="m-0 px-3" style="font-weight: bold; color: #5f6368">
+          <%= user.name %>
+        </p>
+      </a>
+    
+      <a class="icon" href="/logout">Log Out
+      </a>
+    </div>
+    <style>
+      @media (max-width: 440px) {
+        .nav-contcnt {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .new-meeting {
+          width: 124px;
+          white-space: nowrap;
+        }
+      }
+
+      .icon {
+        text-decoration: none;
+        color: #5f6368;
+        padding: 0rem 0.25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.25rem;
+        margin: 0rem 0.35rem;
+      }
+
+      .icon:hover {
+        background-color: rgb(197, 197, 197);
+        color: #5f6368;
+      }
+
+      .icon ion-icon {
+        font-size: 1.7rem;
+      }
+    </style>
+  </div>
+</nav>

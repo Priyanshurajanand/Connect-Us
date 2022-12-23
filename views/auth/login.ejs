@@ -1,0 +1,94 @@
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+  crossorigin="anonymous"
+/>
+
+<nav class="navbar navbar-light navbar-expand-lg fixed-top shadow-sm bg-white px-4" style="background: linear-gradient(90deg, rgba(215,214,215,1) 0%, rgba(129,234,255,1) 100%);">
+  <a class="navbar-brand" href="/start" style="color: #5f6368">
+    <span style="font-weight: bold">Connect</span> Us</a
+  >
+  <button
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    class="navbar-toggler"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div id="navbarSupportedContent" class="collapse navbar-collapse justify-content-end ">
+    <ul class="navbar-nav ml-auto ">
+      <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+      <li class="nav-item"><a href="/signup" class="nav-link">Register</a></li>
+    </ul>
+    <div class="navbar-text ml-lg-3">
+      <!-- <a href="#" class="btn btn-primary text-white shadow">Fancy Button</a> -->
+    </div>
+  </div>
+</nav>
+<div
+  class="container py-5 mt-5"
+  style="
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  "
+>
+  <h3 class="text-center mb-3">Login</h3>
+  <div class="card" style="width: 100%; max-width: 35rem">
+    <div
+      style="display: flex; justify-content: space-between; align-items: center"
+      class="card-header"
+    >
+      <p class="m-0">Login Form</p>
+      <a href="/signup" type="button" class="btn btn-outline-primary btn-sm"
+        >Sign Up</a
+      >
+    </div>
+    <div class="card-body">
+      <form action="/login" method="POST">
+        <% if(locals.messages.success){ %>
+        <div class="alert alert-success" role="alert">
+          <%= locals.messages.success %>
+        </div>
+        <% } %> <% if(locals.messages.error){ %>
+        <div class="alert alert-danger" role="alert">
+          <%= locals.messages.error %>
+        </div>
+        <% } %>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            name="username"
+            class="form-control"
+            placeholder="username"
+          />
+          <label for="floatingInput">Enter your username</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            placeholder="password"
+          />
+          <label for="floatingPassword">Enter your Password</label>
+        </div>
+        <button style="width: 100%" type="submit" class="btn btn-primary">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  body {
+    background: linear-gradient(90deg, rgba(215,214,215,1) 0%, rgba(129,234,255,1) 100%);
+  }
+</style>

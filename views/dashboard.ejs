@@ -1,0 +1,539 @@
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    
+    <script src="https://kit.fontawesome.com/1256cd022a.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<body>
+    <header>
+        <a href="/start" class="logo logo-name" style="color: #5f6368">
+          <span style="font-weight: bold">Connect</span> Us
+        </a>
+        
+        
+        <div class="icons logo-name">
+            <a class="icon-space" href="/">Home 
+            </a>
+            <a class="icon-space" href="/logout">Log Out
+            </a>
+        </div>
+    </header>
+
+   
+    
+    
+    <div class="sidebar">
+        <ul class="nav-links">
+            <li>
+                <div id="" class="roles">
+                    <span class="links_name"><%= user.role %></span>
+                </div>
+            </li>
+            <li>
+                <div id="aHOME" class="active">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </div>
+            </li>
+            <li class="c">
+                <div id="aAllCandidate" class="">
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">Candidate List</span>
+                </div>
+            </li>
+            <li class="iv">
+                <div id="ainterviewer" class="">
+                    <i class='bx bx-purchase-tag-alt'></i>
+                    <span class="links_name">Interviewer List</span>
+                </div>
+            </li>
+            <li class="e">
+                <div id="aEvent" class="">
+                    <i class='bx bx-list-ul'></i>
+                    <span class="links_name">Time Slot </span>
+                </div>
+            </li>
+            
+            <li class="fts">
+                <div id="aDATABASE" class="">
+                    <i class='bx bx-coin-stack'></i>
+                    <span class="links_name">Free Time Slot</span>
+                </div>
+            </li>
+            <li class="sc">
+                <div id="aINDICATEURS" class="">
+                    <i class='bx bx-line-chart'></i>
+                    <span class="links_name">Scheduler</span>
+                </div>
+            </li>
+            
+            
+        </ul>
+    </div>
+
+    <section class="home-section" id="HOME">
+        <div class="home-content" id="dashboard" class="tabcontent">
+
+                <%- include("profile.ejs") %>
+
+                </div>
+    </section>
+
+    <section class="home-section" id="AllCandidate">
+           <div class="home-content" id="dashboard" class="tabcontent">
+       
+              <%- include('about.ejs') %>
+              
+              </div>
+    </section>
+             
+    <section class="home-section" id="Event">
+           <div class="home-content" id="dashboard" class="tabcontent">
+              <%- include('event.ejs') %>
+            </div>
+    </section>
+    <section class="home-section" id="INDICATEURS">
+           <div class="home-content" id="dashboard" class="tabcontent">
+            <%- include('Schedule.ejs') %>
+           </div>
+    </section>
+
+    <section class="home-section" id="interviewer">
+           <div class="home-content" id="dashboard" class="tabcontent">
+             <%- include('interviewer.ejs') %>
+           </div>
+    </section>
+
+    <section class="home-section" id="DATABASE">
+           <div class="home-content" id="dashboard" class="tabcontent">
+            <%- include('timeSlot.ejs') %>
+            </div>
+    </section>
+
+</body>
+</html>
+
+
+<style>
+  /* Googlefont Poppins CDN Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+:root {
+    --main-color: #61b8a2;
+    --main-colorbg: #76c2af;
+    --black: #13131a;
+    --color-light: rgba(200, 200, 200, 0.18);
+    --bg: #f9f9f9;
+}
+
+* {
+    font-family: 'Sora', sans-serif;
+    margin: 0;
+    padding: 0;
+    appearance: 0;
+    box-sizing: border-box;
+    outline: 0;
+    border: 0;
+    text-decoration: none;
+    transition: .2s linear;
+    
+}
+
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: rem;
+    scroll-behavior: smooth;
+    
+}
+
+
+
+
+
+
+/*SECTIONS________*/
+
+#HOME {
+    display: block;
+}
+
+#AllCandidate {
+    display: none;
+}
+
+#Event {
+    display: none;
+}
+
+#INDICATEURS {
+    display: none;
+}
+
+#interviewer {
+    display: none;
+}
+
+#DATABASE {
+    display: none;
+}
+
+.c , .e , .iv{
+    display: block;
+}
+
+/* HEADER */
+
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    padding: 1.5rem 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    background: linear-gradient(90deg, rgba(215,214,215,1) 0%, rgba(129,234,255,1) 100%);
+}
+ 
+
+header .icons div {
+    color: var(--black);
+    font-size: 3.5rem;
+    margin-left: 2rem;
+}
+
+header .icons div:hover {
+    color: var(--main-color);
+}
+
+.logo-name {
+    font-size: 1.5rem;
+    font-weight: 300;
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon-space {
+    margin-left: 15px;
+}
+
+
+
+/* SIDEBAR */
+
+.sidebar {
+    padding-top: 10px;
+    position: fixed;
+    height: 100%;
+    width: 180px;
+    background: transparent;
+    transition: all 0.5s ease;
+    margin: 0;
+    appearance: 0;
+    box-sizing: border-box;
+    outline: 0;
+    border: 0;
+    text-decoration: none;
+    transition: .2s linear;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    user-select: none;
+    background: linear-gradient(90deg, rgba(215,214,215,1) 0%, rgba(129,234,255,1) 100%);
+
+}
+
+.sidebar.active {
+    width: 60px;
+}
+
+.sidebar .nav-links {
+    margin-top: 50px;
+}
+
+.sidebar .nav-links li {
+    position: relative;
+    list-style: none;
+    height: 50px;
+}
+
+.sidebar .nav-links li div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--black);
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.sidebar .nav-links li .active {
+    background: var(--bg);
+}
+
+.sidebar .nav-links li .active::before {
+    content: "";
+    width: 4px;
+    height: 100%;
+    background: var(--main-color);
+}
+
+.sidebar .nav-links li:hover {
+    background: var(--bg);
+}
+
+
+.sidebar .nav-links li i {
+    min-width: 60px;
+    text-align: center;
+    font-size: 18px;
+    color: var(--black);
+}
+
+.sidebar .nav-links li .links_name {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap;
+    color: var(--black);
+}
+
+.roles {
+    padding-left: 60px;
+    
+    border-bottom: black solid;
+}
+
+
+
+/* SECTION HOME */
+.home-section {
+    position: relative;
+    background: #f5f5f5;
+    min-height: 100vh;
+    width: calc(100% - 180px);
+    left: 180px;
+    transition: all 0.5s ease;
+    display: block;
+    user-select: none;
+    
+}
+
+.sidebar.active~.home-section {
+    width: calc(100% - 60px);
+    left: 60px;
+}
+
+.home-section .home-content {
+    position: relative;
+    padding-top: 40px;
+}
+
+.home-content .sales-boxes {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 26px;
+    width: 100%;
+}
+
+/* left box */
+.home-content .sales-boxes .recent-sales {
+    width: 65%;
+    background: #fff;
+    padding: 20px 30px;
+    margin: 0 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Right box */
+.home-content .sales-boxes .top-sales {
+    width: 35%;
+    background: #fff;
+    padding: 20px 30px;
+    margin: 0 20px 0 0;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Media Query */
+@media (max-width: 1240px) {
+
+
+    .sidebar.active {
+        width: 220px;
+    }
+
+    .home-section {
+        width: calc(100% - 60px);
+        left: 60px;
+
+    }
+
+    .sidebar.active~.home-section {
+        /* width: calc(100% - 220px); */
+        overflow: hidden;
+        left: 220px;
+    }
+
+}
+
+@media (max-width: 1150px) {
+    .home-content .sales-boxes {
+        flex-direction: column;
+    }
+
+    .home-content .sales-boxes .box {
+        width: 100%;
+        overflow-x: scroll;
+        margin-bottom: 30px;
+    }
+
+    .home-content .sales-boxes .top-sales {
+        margin: 0;
+    }
+
+    .top-sales {
+        display: none;
+    }
+
+    .home-content .sales-boxes {
+        width: 100%;
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 550px) {
+    .recent-sales {
+        width: 100%;
+    }
+}
+</style>
+
+<script>
+   $(function () {
+            $('#aHOME').click(function () {
+                $('#HOME').css("display", "block");
+                document.getElementById("aHOME").className = "active";
+                $('#AllCandidate').css("display", "none");
+                document.getElementById("aAllCandidate").className = "";
+                $('#Event').css("display", "none");
+                document.getElementById("aEvent").className = "";
+                $('#INDICATEURS').css("display", "none");
+                document.getElementById("aINDICATEURS").className = "";
+                $('#interviewer').css("display", "none");
+                document.getElementById("ainterviewer").className = "";
+                $('#DATABASE').css("display", "none");
+                document.getElementById("aDATABASE").className = "";
+            });
+
+            $('#aAllCandidate').click(function () {
+                $('#HOME').css("display", "none");
+                document.getElementById("aHOME").className = "";
+                $('#AllCandidate').css("display", "block");
+                document.getElementById("aAllCandidate").className = "active";
+                $('#Event').css("display", "none");
+                document.getElementById("aEvent").className = "";
+                $('#INDICATEURS').css("display", "none");
+                document.getElementById("aINDICATEURS").className = "";
+                $('#interviewer').css("display", "none");
+                document.getElementById("ainterviewer").className = "";
+                $('#DATABASE').css("display", "none");
+                document.getElementById("aDATABASE").className = "";
+            });
+
+            $('#aEvent').click(function () {
+                $('#HOME').css("display", "none");
+                document.getElementById("aHOME").className = "";
+                $('#AllCandidate').css("display", "none");
+                document.getElementById("aAllCandidate").className = "";
+                $('#Event').css("display", "block");
+                document.getElementById("aEvent").className = "active";
+                $('#INDICATEURS').css("display", "none");
+                document.getElementById("aINDICATEURS").className = "";
+                $('#interviewer').css("display", "none");
+                document.getElementById("ainterviewer").className = "";
+                $('#DATABASE').css("display", "none");
+                document.getElementById("aDATABASE").className = "";
+            });
+
+            $('#aINDICATEURS').click(function () {
+                $('#HOME').css("display", "none");
+                document.getElementById("aHOME").className = "";
+                $('#AllCandidate').css("display", "none");
+                document.getElementById("aAllCandidate").className = "";
+                $('#Event').css("display", "none");
+                document.getElementById("aEvent").className = "";
+                $('#INDICATEURS').css("display", "block");
+                document.getElementById("aINDICATEURS").className = "active";
+                $('#interviewer').css("display", "none");
+                document.getElementById("ainterviewer").className = "";
+                $('#DATABASE').css("display", "none");
+                document.getElementById("aDATABASE").className = "";
+            });
+
+            $('#ainterviewer').click(function () {
+                $('#HOME').css("display", "none");
+                document.getElementById("aHOME").className = "";
+                $('#AllCandidate').css("display", "none");
+                document.getElementById("aAllCandidate").className = "";
+                $('#Event').css("display", "none");
+                document.getElementById("aEvent").className = "";
+                $('#INDICATEURS').css("display", "none");
+                document.getElementById("aINDICATEURS").className = "";
+                $('#interviewer').css("display", "block");
+                document.getElementById("ainterviewer").className = "active";
+                $('#DATABASE').css("display", "none");
+                document.getElementById("aDATABASE").className = "";
+            });
+
+            $('#aDATABASE').click(function () {
+                $('#HOME').css("display", "none");
+                document.getElementById("aHOME").className = "";
+                $('#AllCandidate').css("display", "none");
+                document.getElementById("aAllCandidate").className = "";
+                $('#Event').css("display", "none");
+                document.getElementById("aEvent").className = "";
+                $('#INDICATEURS').css("display", "none");
+                document.getElementById("aINDICATEURS").className = "";
+                $('#interviewer').css("display", "none");
+                document.getElementById("ainterviewer").className = "";
+                $('#DATABASE').css("display", "block");
+                document.getElementById("aDATABASE").className = "active";
+            });
+        });
+
+        let Role = '<%= user.role %>'; 
+        if (Role === 'Candidate') {
+            document.querySelector(".c").style.display = "none";
+            document.querySelector(".e").style.display = "none";
+            document.querySelector(".iv").style.display = "none";
+            document.querySelector(".sc").style.display = "none";
+            document.querySelector(".fts").style.display = "none";
+        }
+        else if (Role === 'Interviewer') {
+            
+            document.querySelector(".iv").style.display = "none";
+            document.querySelector(".sc").style.display = "none";
+            document.querySelector(".fts").style.display = "none";
+            
+        }
+        else if (Role === 'Admin') {
+            document.querySelector(".e").style.display = "none";
+            
+        }
+
+
+    
+
+</script>

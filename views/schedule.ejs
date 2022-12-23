@@ -1,0 +1,218 @@
+<main class="content">
+  <div class="main-header">
+    <div class="main-title">
+      <h1>Schedule Meeting</h1>
+    </div>
+    <div class="main-form">
+      <form method="">
+        <input
+          type="text"
+          name="ttitle"
+          id="ftitle"
+          placeholder="Email send to : "
+        />
+        <input
+          type="text"
+          name="tdescription"
+          id="tdescription"
+          placeholder="Subject : "
+        />
+        <input
+          name="meetingLink"
+          type="text"
+          id="meetingLink"
+          value="f28c910f-9cf0-43ed-9152-7b1ae562894d"
+        />
+
+        <div class="input-group">
+          <input type="date" name="tdate" id="tdate" />
+        </div>
+
+        <div class="input-hour">
+          <div id="fhourdiv">
+            <input type="time" id="tstart" name="tstart" class="hour" />
+            <input type="time" id="tend" class="hour" name="tend" />
+          </div>
+        </div>
+
+        <button type="submit" class="button" id="tsubmit" onclick="sendEmail()">
+          Send Email
+        </button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+<script type="text/javascript">
+  function sendEmail() {
+    Email.send({
+      Host: "smtp.elasticemail.com",
+      Username: "priyanshurajanand123456@gmail.com",
+      Password: "485381E970B602AA702A82F2DDADF07ECBF1",
+      To: 'document.getElementById("ftitle").value',
+      From: "priyanshurajanand123456@gmail.com ",
+      Subject: 'document.getElementById("tdescription").value',
+      Body: 'you can join the interview with this link document.getElementById("meetingLink").value \n timing for the meeting is document.getElementById("tdate").value and document.getElementById("tstart").value to document.getElementById("tend").value ',
+    }).then(function (message) {
+      alert("mail sent successfully");
+      console.log("sent successfully");
+    });
+  }
+</script>
+
+<script>
+  const meetingLink = document.getElementById("meetingLink");
+  meetingLink.style.display = "none";
+</script>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap");
+
+  body {
+    font: 400 14px Roboto, sans-serif;
+    background: #f6f4fc;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+  }
+
+  em {
+    font-style: normal;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    flex: 1;
+    margin: 5.5em 0;
+    width: 100%;
+    min-width: 260px;
+  }
+
+  .main-header {
+    background-color: #fefefe;
+    border-radius: 40px;
+    padding: 20px;
+    width: 100%;
+    max-width: 850px;
+  }
+
+  .main-title {
+    width: 100%;
+  }
+
+  .main-header .main-title h1 {
+    margin: 30px;
+    font-size: 42px;
+    color: #3ba8d4;
+  }
+
+  .main-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ==== form ==== */
+
+  input,
+  button,
+  textarea {
+    font: 400 14px Roboto, sans-serif;
+  }
+
+  form input {
+    width: 100%;
+    height: 50px;
+    color: #a6a6a6;
+    border: 1px solid #dcdce6;
+    border-radius: 8px;
+    padding: 0 24px;
+  }
+
+  .main-header .main-form form {
+    width: 100%;
+    max-width: 450px;
+  }
+
+  .main-header .main-form form input {
+    margin-top: 8px;
+  }
+
+  .main-header .main-form form .input-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .input-hour {
+    height: 50px;
+  }
+
+  #fhourdiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  #fhourdiv > input {
+    width: 47%;
+  }
+
+  .main-header .main-form form .input-group input + input {
+    margin-right: 8px;
+  }
+
+  .main-header .main-form form .input-group .all_day {
+    width: 120px;
+    height: 50px;
+    text-align: right;
+    padding: 18px 0;
+    margin-top: 8px;
+    color: #a6a6a6;
+  }
+
+  .main-header .main-form form .input-group .checkbox {
+    width: 60px;
+    height: 30px;
+    color: #a6a6a6;
+    border: 1px solid #dcdce6;
+    border-radius: 10px;
+    margin-left: 10px;
+  }
+
+  .main-header .main-form form .input-group .hour {
+    width: 219px;
+  }
+
+  .main-header .main-form form .button {
+    width: 100%;
+    height: 60px;
+    background: #3ba8d4;
+    border: 0;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 700;
+    margin: 20px 0 15px 0;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    transition: filter 0.2s;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    filter: brightness(90%);
+  }
+</style>

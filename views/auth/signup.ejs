@@ -1,0 +1,557 @@
+<script
+  type="text/javascript"
+  src="https://code.jquery.com/jquery-1.7.1.min.js"
+></script>
+
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+  crossorigin="anonymous"
+/>
+
+<nav
+  class="navbar navbar-light navbar-expand-lg fixed-top shadow-sm bg-white px-4"
+  style="
+    background: linear-gradient(
+      90deg,
+      rgba(215, 214, 215, 1) 0%,
+      rgba(129, 234, 255, 1) 100%
+    );
+  "
+>
+  <a class="navbar-brand" href="/start" style="color: #5f6368">
+    <span style="font-weight: bold">Connect</span> Us</a
+  >
+  <button
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    class="navbar-toggler"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div
+    id="navbarSupportedContent"
+    class="collapse navbar-collapse justify-content-end"
+  >
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+      <li class="nav-item"><a href="/signup" class="nav-link">Register</a></li>
+    </ul>
+    <div class="navbar-text ml-lg-3">
+      <!-- <a href="#" class="btn btn-primary text-white shadow">Fancy Button</a> -->
+    </div>
+  </div>
+</nav>
+
+<div
+  class="container py-5 mt-2"
+  style="
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  "
+>
+  <h3 class="text-center mb-3">Register</h3>
+  <div class="card" style="width: 100%; max-width: 35rem">
+    <div
+      style="display: flex; justify-content: space-between; align-items: center"
+      class="card-header"
+    >
+      <p class="m-0">Signup Form</p>
+      <a href="/login" type="button" class="btn btn-outline-primary btn-sm"
+        >Login</a
+      >
+    </div>
+
+    <!-- toggle  -->
+    <form class="form" action="" id="searchTypeToggle">
+      <div></div>
+      <label class="selected" id="Form-3">
+        <input type="radio" name="searchtype" data-location="0" value="one" />
+        <div>As Candidate</div>
+      </label>
+      <label id="Form-2">
+        <input
+          type="radio"
+          name="searchtype"
+          data-location="calc(100% - 8px)"
+          value="two"
+        />
+        <div>As Interviewer</div>
+      </label>
+      <label id="Form-1">
+        <input
+          type="radio"
+          name="searchtype"
+          data-location="calc(200% - 12px)"
+          value="three"
+        />
+        <div>As Admin</div>
+      </label>
+    </form>
+    <!-- toggle  end -->
+
+    <!-- form -1  -->
+    <div class="card-body form1" id="form-1">
+      <form id="user" action="/signup" method="POST">
+        <% if(locals.messages.success){ %>
+        <div class="alert alert-success" role="alert">
+          <%= locals.messages.success %>
+        </div>
+        <% } %> <% if(locals.messages.err){ %>
+        <div class="alert alert-danger" role="alert">
+          <%= locals.messages.err %>
+        </div>
+        <% } %>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <div class="form-floating">
+              <input
+                type="text"
+                name="name"
+                class="form-control"
+                placeholder="name"
+              />
+              <label>Enter your Name</label>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="form-floating">
+              <input
+                type="text"
+                name="username"
+                class="form-control"
+                placeholder="username"
+              />
+              <label>Enter your Username</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <div class="form-floating">
+              <input
+                type="email"
+                name="email"
+                class="form-control"
+                placeholder="email"
+              />
+              <label>Enter your Email</label>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="form-floating">
+              <input
+              type="text"
+                name="profession"
+                class="form-control"
+                placeholder="Your Profession"
+              />
+
+              <label>Your Profession</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <div class="form-floating">
+              <input
+                type="number"
+                name="phone"
+                class="form-control"
+                placeholder="phone"
+              />
+              <label>Enter your Phone no.</label>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <div class="form-floating">
+              <input
+                type="text"
+                name="address"
+                class="form-control"
+                placeholder="address"
+              />
+              <label>Enter your Address</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <div class="form-floating" style="height: auto">
+            <select
+              name="skills"
+              size="4"
+              class="form-select"
+              multiple
+              aria-label="multiple select example"
+            >
+              <option value="HTML">HTML</option>
+              <option value="CSS">CSS</option>
+              <option value="JAVASCRIPT">JAVASCRIPT</option>
+              <option value="FIGMA">FIGMA</option>
+              <option value="REACT JS">REACT JS</option>
+              <option value="NODE JS">NODE JS</option>
+              <option value="DATABASE">DATABASE</option>
+              <option value="DATA STRUCTURE">DATA STRUCTURE</option>
+            </select>
+            <label class="form-label select-label">Enter 5 skills</label>
+          </div>
+        </div>
+
+        <div class="mb-3"  style="display: none;">
+          <div class="form-floating" style="height: auto">
+            <select
+              name="role"
+              size="4"
+              class="form-select"
+            >
+              <option value="Candidate" selected>Candidate</option>
+              <option value="Admin">Admin</option>
+              <option value="Interviewer">Interviewer</option>
+            </select>
+            <label class="form-label select-label">Enter Your Role</label>
+          </div>
+        </div>
+
+        
+
+        <div class="mb-3">
+          <div class="form-floating">
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              placeholder="password"
+            />
+            <label for="floatingPassword">Enter your Password</label>
+          </div>
+        </div>
+        <button style="width: 100%" type="submit" class="btn btn-primary">
+          Sign Up
+        </button>
+      </form>
+    </div>
+
+    <!-- form 2 -->
+    <div class="card-body form2" id="form-2">
+      <form id="interviewer" action="/signup" method="POST">
+        <% if(locals.messages.success){ %>
+        <div class="alert alert-success" role="alert">
+          <%= locals.messages.success %>
+        </div>
+        <% } %> <% if(locals.messages.err){ %>
+        <div class="alert alert-danger" role="alert">
+          <%= locals.messages.err %>
+        </div>
+        <% } %>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <div class="form-floating">
+              <input
+                type="text"
+                name="name"
+                class="form-control"
+                placeholder="name"
+              />
+              <label>Enter your Name</label>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="form-floating">
+              <input
+                type="text"
+                name="username"
+                class="form-control"
+                placeholder="username"
+              />
+              <label>Enter your Username</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <div class="form-floating">
+              <input
+                type="email"
+                name="email"
+                class="form-control"
+                placeholder="email"
+              />
+              <label>Enter your Email</label>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="form-floating">
+              <input
+                type="number"
+                name="phone"
+                class="form-control"
+                placeholder="phone"
+              />
+              <label>Enter your Phone no.</label>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-3">
+          <div class="form-floating">
+            <input
+              name="profession"
+              class="form-control"
+              placeholder="Your Profession"
+            />
+
+            <label>Your Profession</label>
+          </div>
+        </div>
+
+        <div class="mb-3"  style="display: none;">
+          <div class="form-floating" style="height: auto">
+            <select
+              name="role"
+              size="4"
+              class="form-select"
+            >
+              <option value="Candidate" >Candidate</option>
+              <option value="Admin">Admin</option>
+              <option value="Interviewer" selected>Interviewer</option>
+            </select>
+            <label class="form-label select-label">Enter Your Role</label>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <div class="form-floating">
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              placeholder="password"
+            />
+            <label for="floatingPassword">Enter your Password</label>
+          </div>
+        </div>
+        <button style="width: 100%" type="submit" class="btn btn-primary">
+          Sign Up
+        </button>
+      </form>
+    </div>
+
+    <!-- form 3 -->
+    <div class="card-body form3" id="form-3">
+      <form id="admin" action="/signup" method="POST">
+        <% if(locals.messages.success){ %>
+        <div class="alert alert-success" role="alert">
+          <%= locals.messages.success %>
+        </div>
+        <% } %> <% if(locals.messages.err){ %>
+        <div class="alert alert-danger" role="alert">
+          <%= locals.messages.err %>
+        </div>
+        <% } %>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <div class="form-floating">
+              <input
+                type="text"
+                name="name"
+                class="form-control"
+                placeholder="name"
+              />
+              <label>Enter your Name</label>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="form-floating">
+              <input
+                type="text"
+                name="username"
+                class="form-control"
+                placeholder="username"
+              />
+              <label>Enter your Username</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-3">
+          <div class="form-floating">
+            <input
+              type="email"
+              name="email"
+              class="form-control"
+              placeholder="email"
+            />
+            <label>Enter your Email</label>
+          </div>
+        </div>
+
+        <div class="mb-3"  style="display: none;">
+          <div class="form-floating" style="height: auto">
+            <select
+              name="role"
+              size="4"
+              class="form-select"
+            >
+              <option value="Candidate" >Candidate</option>
+              <option value="Admin" selected>Admin</option>
+              <option value="Interviewer">Interviewer</option>
+            </select>
+            <label class="form-label select-label">Enter Your Role</label>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <div class="form-floating">
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              placeholder="password"
+            />
+            <label for="floatingPassword">Enter your Password</label>
+          </div>
+        </div>
+        <button style="width: 100%" type="submit" class="btn btn-primary">
+          Sign Up
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  body {
+    background: linear-gradient(
+      90deg,
+      rgba(215, 214, 215, 1) 0%,
+      rgba(129, 234, 255, 1) 100%
+    );
+  }
+
+  .form {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    position: relative;
+    border-radius: 2px;
+  }
+
+  .form > div {
+    color: white;
+    padding-top: 24px;
+    display: block;
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    bottom: -4px;
+    width: calc(33.33% + 8px);
+    background-color: rgba(50, 150, 255, 1);
+    border-radius: 2px;
+    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    pointer-events: none;
+    transition: transform 0.3s;
+  }
+
+  .form::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  .form label {
+    float: left;
+    width: calc(33.333% - 1px);
+    position: relative;
+    padding: 20px 0px 40px;
+    overflow: hidden;
+    border-left: solid 1px rgba(0, 0, 0, 0.2);
+    transition: color 0.3s;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  }
+
+  .form label:first-child {
+    border-left: none;
+  }
+
+  .form label input {
+    position: absolute;
+    top: -200%;
+  }
+
+  .form label div {
+    z-index: 5;
+    position: absolute;
+    width: 100%;
+  }
+
+  .form label.selected {
+    color: white;
+  }
+
+  #form-1 {
+    display: block;
+  }
+  #form-2 {
+    display: none;
+  }
+  #form-3 {
+    display: none;
+  }
+</style>
+
+<script>
+  document
+    .querySelector("#searchTypeToggle")
+    .addEventListener("click", function (event) {
+      if (event.target.tagName.toLowerCase() == "input") {
+        let input = event.target;
+        let slider = this.querySelector("div");
+        let labels = this.querySelectorAll("label");
+
+        slider.style.transform = `translateX(${input.dataset.location})`;
+        labels.forEach(function (label) {
+          if (label == input.parentElement) {
+            label.classList.add("selected");
+          } else {
+            label.classList.remove("selected");
+          }
+        });
+      }
+    });
+
+  $(function () {
+    $("#Form-1").click(function () {
+      $("#form-3").css("display", "block");
+
+      $("#form-2").css("display", "none");
+
+      $("#form-1").css("display", "none");
+    });
+    $("#Form-2").click(function () {
+      $("#form-2").css("display", "block");
+
+      $("#form-3").css("display", "none");
+
+      $("#form-1").css("display", "none");
+    });
+    $("#Form-3").click(function () {
+      $("#form-1").css("display", "block");
+
+      $("#form-2").css("display", "none");
+
+      $("#form-3").css("display", "none");
+    });
+  });
+</script>
