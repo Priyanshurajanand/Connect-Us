@@ -74,6 +74,4 @@ node server.js
 -   [GIT](https://git-scm.com/) - Used for version control
 
 
-#� �C�o�n�n�e�c�t�-�U�s�
-�
-�
+#Connect-Us
